@@ -1,0 +1,20 @@
+{
+  "name": "vanilla-logitravel-test",
+  "version": "1.0.0",
+  "description": "vanilla js version of logitravel test",
+  "main": "index.js",
+  "repository": "https://github.com/Gupramallo/vanilla-logitravel-test.git",
+  "author": "Gustavo Penalver",
+  "license": "MIT",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
