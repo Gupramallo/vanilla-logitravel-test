@@ -1,6 +1,3 @@
-/* Basic CSS Template */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
   --color-item-list-background: #f7f7f7;
   --color-item-list-border: #cccccc;
@@ -21,52 +18,11 @@ body {
   opacity: 1;
   min-height: 100vh;
   box-sizing: border-box;
-}
-
-h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  letter-spacing: 0px;
-  color: var(--color-text);
-  margin: 0;
-}
-
-p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  color: var(--color-text);
-  margin: 0;
+  position: relative;
 }
 
 main {
   padding: 2em;
-  text-align: center;
-}
-
-button {
-  text-transform: uppercase;
-  text-align: center;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  max-height: 49px;
-}
-
-.button-filled {
-  padding: 15px 50px;
-  color: var(--color-white);
-  background-color: var(--color-blue);
-  text-align: center;
-}
-
-.button-outlined {
-  padding: 15px 30px;
-  color: var(--color-blue);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-blue);
   text-align: center;
 }
 
@@ -76,9 +32,9 @@ button {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  width: 850px;
-  height: 527px;
+  max-width: 850px;
   padding: 50px;
+  align-self: center;
 }
 
 .text-container {
@@ -86,25 +42,52 @@ button {
   flex-direction: column;
   gap: 13px;
   margin-bottom: 35px;
+  /* align-items: flex-start; */
+}
+
+.input-container {
+  margin-bottom: 25px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--color-item-list-border);
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 2px rgba(50, 75, 255, 0.2);
+}
+
+.input-container input::placeholder {
+  color: #999;
 }
 
 .item-container {
   display: flex;
   flex-direction: column;
-  width: 800px;
   height: 227px;
   background: #f7f7f7 0% 0% no-repeat padding-box;
   border: 1px solid #cccccc;
   opacity: 1;
   padding: 13px 10px;
   margin-bottom: 35px;
+  overflow: auto;
 }
 
 .item-block {
   display: flex;
   align-items: center;
   justify-content: start;
-  height: 40px;
+  min-height: 40px;
   padding: 0 15px;
 }
 
@@ -116,7 +99,7 @@ button {
 
 .item-block-selected > p,
 .item-block:hover > p {
-  color: var(--color-white) !important;
+  color: var(--color-white);
 }
 
 .refresh-icon {
@@ -126,5 +109,11 @@ button {
 
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.left-button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }

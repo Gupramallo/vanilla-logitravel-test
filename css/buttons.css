@@ -1,0 +1,27 @@
+button {
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  max-height: 49px;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+.button-outlined {
+  padding: 15px 30px;
+  color: var(--color-blue);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-blue);
+  text-align: center;
+}
+
+.button-filled {
+  padding: 15px 50px;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  text-align: center;
+}
