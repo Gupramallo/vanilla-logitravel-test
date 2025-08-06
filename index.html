@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="css/typography.css" />
     <link rel="stylesheet" href="css/buttons.css" />
     <link rel="stylesheet" href="css/overlay.css" />
+    <link rel="stylesheet" href="css/card.css" />
   </head>
   <body>
     <main>
       <div class="card">
-        <div class="text-container">
+        <div class="text-container text-centered">
           <h3>This is a technical proof.</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing, elit mus primis
@@ -23,7 +24,7 @@
         </div>
         <div id="item-container" class="item-container"></div>
         <div class="button-container">
-          <div class="left-button-container">
+          <div class="button-container-left">
             <button class="button-outlined">
               <svg
                 class="refresh-icon"
@@ -45,26 +46,31 @@
       </div>
 
       <div class="overlay" id="add-item-card-overlay">
-        <div class="card">
-          <div class="text-container">
-            <p>Add item to list</p>
-          </div>
-          <div class="input-container">
-            <input
-              type="text"
-              id="item-name"
-              placeholder="Type the text here"
-            />
-          </div>
-          <div class="button-container">
-            <div class="button-left-container">
-              <button class="button-filled">Add</button>
-              <button class="button-outlined" id="cancel-button">Cancel</button>
+        <div class="overlay-content">
+          <div class="card">
+            <div class="text-container">
+              <p>Add item to list</p>
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                id="item-name"
+                placeholder="Type the text here"
+              />
+            </div>
+            <div class="button-container">
+              <div class="button-container-left full-width">
+                <button class="button-filled">Add</button>
+                <button class="button-outlined" id="cancel-button">
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <script src="script.js"></script>
+    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/overlay.js"></script>
   </body>
 </html>

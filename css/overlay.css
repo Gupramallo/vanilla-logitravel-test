@@ -1,13 +1,13 @@
 .overlay {
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
   background: #0000001a 0% 0% no-repeat padding-box;
-  display: block;
-  align-items: center;
   transform: translateY(-100%);
   transition: transform 0.3s ease-in;
 }
@@ -15,4 +15,8 @@
 .display-overlay {
   transform: translateY(0);
   transition: transform 0.3s ease-out;
+}
+
+.overlay-content {
+  margin-top: 50px;
 }
