@@ -1,9 +1,14 @@
-const items = localStorage.getItem('items')
+const getLocalStorageItems = () =>
+  JSON.parse(localStorage.getItem('items')) ?? []
 
-export const setNewItem = (item) => {
-  const items = JSON.parse(localStorage.getItem('items')) ?? []
+const setNewItem = (item) => {
+  const items = getLocalStorageItems()
+  const itemId = items.length
 
-  if (!items.length) {
-    localStorage.setItem('items', JSON.stringify([item]))
-  }
+  return localStorage.setItem(
+    'items',
+    JSON.stringify([...items, { name: item, id: itemId, selected: false }])
+  )
 }
+
+export { setNewItem, getLocalStorageItems }

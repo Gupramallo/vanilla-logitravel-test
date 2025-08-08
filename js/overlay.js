@@ -2,6 +2,11 @@ const overlay = document.querySelector('#add-item-card-overlay')
 
 const openOverlay = () => {
   overlay.classList.add('display-overlay')
+  const input = document.querySelector('#item-name')
+
+  if (input) {
+    input.focus()
+  }
 }
 
 const closeOverlay = () => {
@@ -9,7 +14,6 @@ const closeOverlay = () => {
 }
 
 const handleOverlayClick = (event) => {
-  const overlay = document.querySelector('#add-item-card-overlay')
   const card = overlay.querySelector('.card')
 
   if (event.target === overlay && !card.contains(event.target)) {
