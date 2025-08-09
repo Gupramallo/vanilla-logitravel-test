@@ -4,7 +4,7 @@ export default defineConfig({
   root: '.',
   server: {
     port: 3000,
-    open: false,
+    open: true,
     host: true,
   },
   build: {

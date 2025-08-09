@@ -1,6 +1,6 @@
+import { ACTIONS } from '../constants.js'
 import { renderItems } from '../handle-items.js'
 import {
-  ACTIONS,
   getLocalStorageItems,
   setLocalStorageItems,
   setRevertLastAction,

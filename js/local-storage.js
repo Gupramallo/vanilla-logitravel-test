@@ -1,13 +1,4 @@
-const STORAGE_KEYS = {
-  items: 'items',
-  latestId: 'latestId',
-  lastAction: 'lastAction',
-}
-
-const ACTIONS = {
-  add: 'add',
-  delete: 'delete',
-}
+import { STORAGE_KEYS } from './constants'
 
 const storage = {
   set: (key, value) => {
@@ -48,12 +39,10 @@ const setRevertLastAction = ({ value, items = [] }) =>
   })
 
 export {
-  ACTIONS,
+  storage,
   setNewItem,
   getLocalStorageItems,
   setLocalStorageItems,
   removeRevertLastAction,
-  storage,
-  STORAGE_KEYS,
   setRevertLastAction,
 }

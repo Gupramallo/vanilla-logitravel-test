@@ -1,7 +1,7 @@
+import { ACTIONS } from '../constants.js'
 import { renderItems } from '../handle-items.js'
 import {
   getLocalStorageItems,
-  ACTIONS,
   setNewItem,
   setRevertLastAction,
 } from '../local-storage.js'

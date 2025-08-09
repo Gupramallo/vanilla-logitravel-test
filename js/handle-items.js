@@ -1,5 +1,5 @@
+import { ACTIONS } from './constants.js'
 import {
-  ACTIONS,
   getLocalStorageItems,
   setLocalStorageItems,
   setRevertLastAction,

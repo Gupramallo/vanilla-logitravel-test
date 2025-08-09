@@ -1,11 +1,10 @@
+import { ACTIONS, STORAGE_KEYS } from '../constants.js'
 import { renderItems } from '../handle-items.js'
 import {
   getLocalStorageItems,
   setLocalStorageItems,
   removeRevertLastAction,
   storage,
-  ACTIONS,
-  STORAGE_KEYS,
 } from '../local-storage.js'
 
 const revertButton = document.querySelector('#revert-button')
