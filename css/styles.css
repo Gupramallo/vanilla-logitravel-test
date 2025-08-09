@@ -66,16 +66,22 @@ main {
   justify-content: start;
   min-height: 40px;
   padding: 0 15px;
+  user-select: none;
 }
 
 .item-block-selected,
 .item-block:hover {
   cursor: pointer;
+}
+
+.item-block:hover {
+  opacity: 0.8;
+}
+.item-block-selected {
   background-color: var(--color-blue);
 }
 
-.item-block-selected > p,
-.item-block:hover > p {
+.item-block-selected > p {
   color: var(--color-white);
 }
 

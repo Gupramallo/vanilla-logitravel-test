@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/typography.css" />
     <link rel="stylesheet" href="css/buttons.css" />
     <link rel="stylesheet" href="css/overlay.css" />
-    <link rel="stylesheet" href="css/card.css" />
   </head>
   <body>
     <main>
@@ -25,7 +24,7 @@
         <div id="item-container" class="item-container"></div>
         <div class="button-container">
           <div class="button-container-left">
-            <button class="button-outlined">
+            <button class="button-outlined" id="revert-button">
               <svg
                 class="refresh-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +40,7 @@
             </button>
             <button class="button-outlined" id="delete-button">Delete</button>
           </div>
-          <button class="button-filled" id="open-overlay-card">Add</button>
+          <button class="button-filled" id="open-overlay-button">Add</button>
         </div>
       </div>
 
@@ -61,7 +60,7 @@
             <div class="button-container">
               <div class="button-container-left full-width">
                 <button class="button-filled" id="add-item-button">Add</button>
-                <button class="button-outlined" id="cancel-button">
+                <button class="button-outlined" id="close-overlay-button">
                   Cancel
                 </button>
               </div>
@@ -70,7 +69,6 @@
         </div>
       </div>
     </main>
-    <script type="module" src="./js/script.js"></script>
-    <script type="module" src="./js/overlay.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

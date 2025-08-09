@@ -1,14 +1,59 @@
-const getLocalStorageItems = () =>
-  JSON.parse(localStorage.getItem('items')) ?? []
-
-const setNewItem = (item) => {
-  const items = getLocalStorageItems()
-  const itemId = items.length
-
-  return localStorage.setItem(
-    'items',
-    JSON.stringify([...items, { name: item, id: itemId, selected: false }])
-  )
+const STORAGE_KEYS = {
+  items: 'items',
+  latestId: 'latestId',
+  lastAction: 'lastAction',
 }
 
-export { setNewItem, getLocalStorageItems }
+const ACTIONS = {
+  add: 'add',
+  delete: 'delete',
+}
+
+const storage = {
+  set: (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value))
+  },
+  get: (key, defaultValue = null) => {
+    const storageItem = localStorage.getItem(key)
+
+    return storageItem ? JSON.parse(storageItem) : defaultValue
+  },
+  remove: (key) => {
+    localStorage.removeItem(key)
+  },
+}
+
+const getLocalStorageItems = () => storage.get(STORAGE_KEYS.items, [])
+
+const setLocalStorageItems = (updatedItems) =>
+  storage.set(STORAGE_KEYS.items, updatedItems)
+
+const setNewItem = (item) => {
+  const items = storage.get(STORAGE_KEYS.items, [])
+  const latestId = storage.get(STORAGE_KEYS.latestId, 0)
+  const newId = latestId + 1
+
+  storage.set(STORAGE_KEYS.items, [
+    ...items,
+    { name: item, id: newId, selected: false },
+  ])
+  storage.set(STORAGE_KEYS.latestId, newId)
+}
+
+const removeRevertLastAction = () => storage.remove(STORAGE_KEYS.lastAction)
+const setRevertLastAction = ({ value, items = [] }) =>
+  storage.set(STORAGE_KEYS.lastAction, {
+    value,
+    items,
+  })
+
+export {
+  ACTIONS,
+  setNewItem,
+  getLocalStorageItems,
+  setLocalStorageItems,
+  removeRevertLastAction,
+  storage,
+  STORAGE_KEYS,
+  setRevertLastAction,
+}

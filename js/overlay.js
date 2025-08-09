@@ -1,8 +1,10 @@
 const overlay = document.querySelector('#add-item-card-overlay')
+const openOverlayButton = document.querySelector('#open-overlay-button')
+const closeOverlayButton = document.querySelector('#close-overlay-button')
+const input = document.querySelector('#item-name')
 
 const openOverlay = () => {
   overlay.classList.add('display-overlay')
-  const input = document.querySelector('#item-name')
 
   if (input) {
     input.focus()
@@ -10,6 +12,7 @@ const openOverlay = () => {
 }
 
 const closeOverlay = () => {
+  input.value = ''
   overlay.classList.remove('display-overlay')
 }
 
@@ -21,4 +24,11 @@ const handleOverlayClick = (event) => {
   }
 }
 
-export { overlay, closeOverlay, openOverlay, handleOverlayClick }
+export {
+  overlay,
+  openOverlayButton,
+  closeOverlayButton,
+  closeOverlay,
+  openOverlay,
+  handleOverlayClick,
+}

@@ -3,14 +3,21 @@
   "version": "1.0.0",
   "description": "vanilla js version of logitravel test",
   "main": "index.js",
+  "type": "module",
   "repository": "https://github.com/Gupramallo/vanilla-logitravel-test.git",
   "author": "Gustavo Penalver",
   "license": "MIT",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js",
+    "lint": "eslint js/**/*.js"
   },
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "eslint": "^9.33.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2"
   },
