@@ -12,6 +12,8 @@ const deleteButton = document.querySelector('#delete-button')
 const cancelButton = document.querySelector('#cancel-button')
 const itemContainer = document.querySelector('#item-container')
 
+let clickTimeout = null
+
 function renderItems(itemsArray) {
   itemContainer.innerHTML = ''
 
@@ -34,27 +36,44 @@ function handleItemClick(event) {
   const clickedItem = event.target.closest('.item-block')
   if (!clickedItem) return
 
+  if (clickTimeout) {
+    clearTimeout(clickTimeout)
+    clickTimeout = null
+
+    return
+  }
+
+  clickTimeout = setTimeout(() => {
+    const clickedId = parseInt(clickedItem.dataset.id)
+    const items = getLocalStorageItems()
+
+    const itemClicked = items.find((item) => item.id === clickedId)
+    if (!itemClicked) {
+      return
+    }
+
+    itemClicked.selected = !itemClicked.selected
+    localStorage.setItem('items', JSON.stringify(items))
+    renderItems(items)
+    clickTimeout = null
+  }, 200)
+}
+
+const handleDeleteDoubleClick = (event) => {
+  const clickedItem = event.target.closest('.item-block')
+  if (!clickedItem) return
+
+  if (clickTimeout) {
+    clearTimeout(clickTimeout)
+    clickTimeout = null
+  }
+
   const clickedId = parseInt(clickedItem.dataset.id)
   const items = getLocalStorageItems()
 
-  // Find the clicked item and toggle its selection
-  const itemClicked = items.find((item) => item.id === clickedId)
-  if (!itemClicked) {
-    return
-  }
-
-  if (itemClicked.selected) {
-    const updatedItems = items.filter((item) => item.id !== itemClicked.id)
-
-    localStorage.setItem('items', JSON.stringify(updatedItems))
-    renderItems(updatedItems)
-
-    return
-  }
-
-  itemClicked.selected = !itemClicked.selected // Toggle selection instead of setting to true
-  localStorage.setItem('items', JSON.stringify(items))
-  renderItems(items)
+  const updatedItems = items.filter((item) => item.id !== clickedId)
+  localStorage.setItem('items', JSON.stringify(updatedItems))
+  renderItems(updatedItems)
 }
 
 function deleteSelectedItems() {
@@ -66,12 +85,7 @@ function deleteSelectedItems() {
   }
 
   const updatedItems = items.filter((item) => !item.selected)
-  if (updatedItems.length > 0 && !updatedItems.some((item) => item.selected)) {
-    updatedItems[0].selected = true
-  }
-
   localStorage.setItem('items', JSON.stringify(updatedItems))
-
   renderItems(updatedItems)
 }
 
@@ -98,4 +112,5 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', handleOverlayClick)
   addButton.addEventListener('click', addItem)
   itemContainer.addEventListener('click', handleItemClick)
+  itemContainer.addEventListener('dblclick', handleDeleteDoubleClick)
 })
