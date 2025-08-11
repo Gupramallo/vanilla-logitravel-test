@@ -83,6 +83,6 @@ yarn lint             # Run ESLint on JavaScript files
 - Data persists between browser sessions
 - Use the revert button to reset to initial state
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is created for demonstration purposes as part of a technical assessment.
