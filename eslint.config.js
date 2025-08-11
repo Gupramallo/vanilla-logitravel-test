@@ -46,7 +46,7 @@ export default [
       ],
       'import/first': 'error',
       'import/newline-after-import': 'error',
-      'no-duplicate-imports': 'error', // Use ESLint's built-in rule instead
+      'no-duplicate-imports': 'error',
     },
     languageOptions: {
       ecmaVersion: 'latest',
