@@ -30,7 +30,7 @@ export default [
         'error',
         {
           groups: [
-            'builtin', // Node.js built
+            'builtin',
             'external',
             'internal',
             'parent',
